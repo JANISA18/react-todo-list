@@ -1,0 +1,151 @@
+/* Root variables for consistent hue colors */
+:root {
+  --primary: #7c3aed;
+  --primary-dark: #5b21b6;
+  --accent: #f472b6;
+  --background: #f4f3ff;
+  --done: #22c55e;
+  --text-dark: #1e1e1e;
+  --text-light: #666;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Container is now centered and responsive */
+.todo-container {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header */
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+/* Input section */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-group button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.input-group button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Task list */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  background-color: #fafafa;
+  border-left: 6px solid var(--primary);
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.todo-item:hover {
+  transform: scale(1.01);
+}
+
+.todo-item span {
+  flex: 1;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+
+.todo-item.done {
+  border-left-color: var(--done);
+}
+
+.todo-item.done span {
+  text-decoration: line-through;
+  color: var(--text-light);
+}
+
+.done-button {
+  background-color: var(--done);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.done-button:hover {
+  background-color: #16a34a;
+}
+
+/* Responsive improvements */
+@media (max-width: 480px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group input,
+  .input-group button {
+    width: 100%;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .done-button {
+    align-self: flex-end;
+  }
+}
